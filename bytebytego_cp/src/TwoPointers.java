@@ -72,6 +72,7 @@ public class TwoPointers {
         Example:
         Input: nums = [0, -1, 2, -3, 1]
         Output: [[-3, 1, 2], [-1, 0, 1]]
+        Below solution Time complexity is O(nlogn) and Space complexity is O(n)
      */
     public ArrayList<ArrayList<Integer>> triplet_sum(ArrayList<Integer> nums) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
@@ -112,7 +113,7 @@ public class TwoPointers {
                     left++;
                 }
             } else if (sum < target) {
-                left++;
+                left++;x
             } else {
                 right--;
             }
