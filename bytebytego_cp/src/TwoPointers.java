@@ -22,6 +22,7 @@ public class TwoPointers {
         nums1.add(1);
         ArrayList<ArrayList<Integer>> triplets = tp.triplet_sum(nums1);
         System.out.println(triplets);
+        System.out.println(tp.is_palindrome_valid("a dog! a panic in a pagoda."));
     }
 
     /*
@@ -113,11 +114,68 @@ public class TwoPointers {
                     left++;
                 }
             } else if (sum < target) {
-                left++;x
+                left++;
             } else {
                 right--;
             }
         }
         return result;
+    }
+
+    /*
+    Is Palindrome Valid
+        A palindrome is a sequence of characters that reads the same forward and backward.
+
+        Given a string, determine if it's a palindrome after removing all non-alphanumeric characters. A character is alphanumeric if it's either a letter or a number.
+
+        Example 1:
+        Input: s = 'a dog! a panic in a pagoda.'
+        Output: True
+        Example 2:
+        Input: s = 'abc123'
+        Output: False
+        Constraints:
+        The string may include a combination of lowercase English letters, numbers, spaces, and punctuations.
+        Complexity Analysis
+            Time complexity: The time complexity of is_palindrome_valid is O(n), where n denotes the length of the string.
+            This is because we perform approximately  n iterations using the two-pointer technique.
+
+            Space complexity: We only allocated a constant number of variables, so the space complexity is  O(1).
+     */
+
+    public Boolean is_palindrome_valid(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+        while (left < right) {
+            if (!Character.isLetterOrDigit(s.charAt(left))) {
+                left++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(s.charAt(right))) {
+                right--;
+                continue;
+            }
+            if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    /*
+        Shift Zeros to the End
+            Given an array of integers, modify the array in place to move all zeros to the end while maintaining the relative order of non-zero elements.
+
+            Example:
+            Input: nums = [0, 1, 0, 3, 2]
+            Output: [1, 3, 2, 0, 0]
+     */
+    public static void shiftZerosToTheEnd(ArrayList<Integer> nums) {
+        int left = 0;
+        for(int right = 0; right < nums.size(); right++) {
+            
+        }
     }
 }
